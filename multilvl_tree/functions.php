@@ -14,23 +14,38 @@ function connect($host,$user,$pass,$database){
 }
 
 function get(){
+	global $connect;
 	$result = mysqli_query($connect, "SELECT id,name,owner_id FROM multilvl_tree");
 	$array = array();
 	$rows = mysqli_num_rows($result);
 	for ($i = 0; $i < $rows; ++$i){
-		$row = mysqli_fetch_row($result);
-		$array[] = $row;
+		$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+		if(empty($array[$row['owner_id']])){
+			$array[$row['owner_id']] = array();
+		}
+		$array[$row['owner_id']][] = $row;
 	}
 	return $array;
 }
 
-//Метод рекурсии, существенныый недостаток которого является многократное обращения к базе данных
-/*function my($owner_id){
-	$result = "SELECT * FROM multilvl_tree WHERE id = $owner_id";
-	while(){
-		$row = mysqli_fetch_array($result);
-		my($row['owner_id']);
+function display($array, $owner_id = 0){
+	if(empty($array[$owner_id])){
+		return;
 	}
-}*/
+	echo "<ul>";
+	for($i = 0; $i < count($array[$owner_id]); ++$i){
+		echo "<li><a href='?id=".$array[$owner_id][$i]['id'].
+		"owner_id=".$owner_id."'>".$array[$owner_id][$i]['name']."</a>";
+		display($array, $array[$owner_id][$i]['id']);
+		echo "</li>";
+	}
+	echo "</ul>";
+	
+	
+}
+
+
+
+
 ?>
 

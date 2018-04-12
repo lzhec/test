@@ -1,0 +1,18 @@
+li{
+	font-size:38px;
+	background:url(images/medals.png) no-repeat;
+	padding-left:24px;
+}
+li li{
+	list-style-type: lower-alpha;
+	font-size:50px;
+	background-position:0 -44px;
+}
+li li li{
+	font-size:28px;
+	background-position:0 -88px;
+}
+li+li+li+li{
+	font-size:16px;
+	background:none;
+}

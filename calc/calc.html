@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="UTF-8"/>
+	<title>Calculator</title>
+	<script type="text/javascript" src="calc_script.js"></script> <!--подключение скрипта вычислений и вывода информации-->
+	<link type="text/css" rel="stylesheet" href="style.css">
+</head>
+	
+<body>
+	<div align="center">
+		<input type="text" id="display">			
+		<p>
+			<button onclick='view("1")'>1</button>
+			<button onclick='view("2")'>2</button>
+			<button onclick='view("3")'>3</button>
+			<button onclick='view("+")'>+</button>
+			<button onclick='c("")'>С</button>
+		</p>
+		<p>
+			<button onclick='view("4")'>4</button>
+			<button onclick='view("5")'>5</button>
+			<button onclick='view("6")'>6</button>
+			<button onclick='view("-")'>-</button>
+			<button onclick='view("(")'>(</button>
+		</p>
+			<button onclick='view("7")'>7</button>
+			<button onclick='view("8")'>8</button>
+			<button onclick='view("9")'>9</button>
+			<button onclick='view("*")'>*</button>
+			<button onclick='view(")")'>)</button>
+		<p>
+			<button onclick='view(".")'>.</button>
+			<button onclick='view("0")'>0</button>
+			<button onclick='math()'>=</button>
+			<button onclick='view("/")'>/</button>
+			<button onclick='view("Math.sqrt(")'>sqrt</button>
+		<p>
+	</div>
+</body>	
+
+</html>

@@ -1,7 +1,7 @@
 <?php
 define("HOST",'localhost');
 define("USER",'root');
-define("PASS",'');
+define("PASS",'Root');
 define("DATABASE",'test');
 
 ?>

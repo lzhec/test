@@ -1,0 +1,20 @@
+{
+	"titles": [
+		{
+			"key": "{{item.name}}",
+			"title": "Rapid SSL title"
+		},
+		{
+			"key": "{{item.name}}",
+			"title": "Rapid SSL Widcard title"
+		},
+		{
+			"key": "{{item.name}}",
+			"title": "Some SSL title"
+		},
+		{
+			"key": "{{item.name}}",
+			"title": "GeoTrust title"
+		}
+	]	
+}

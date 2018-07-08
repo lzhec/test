@@ -1,0 +1,3 @@
+[submodule "autorisation"]
+	path = autorisation
+	url = https://github.com/lzhec/test.git

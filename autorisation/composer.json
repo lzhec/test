@@ -16,11 +16,15 @@
         "mockery/mockery": "^1.0",
         "nunomaduro/collision": "^2.0",
         "phpunit/phpunit": "^7.0"
-    },
+    },   
     "autoload": {
+        "files": [
+            "functions/functions.php"
+        ],
         "classmap": [
             "database/seeds",
-            "database/factories"
+            "database/factories",
+            "functions"
         ],
         "psr-4": {
             "App\\": "app/"

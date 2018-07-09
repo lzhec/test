@@ -1,8 +1,13 @@
+<?php $__env->startSection('content'); ?>
 <script>
     $('.select-sort').click(function(){ 
         $('.sortlist').slideToggle(200);
     });
 </script>
+<?php
+//@include 'functions.php';
+?>
+
 <?php
 function sort_list($a, $subkey) {
     foreach ($a as $k=>$v) {
@@ -16,9 +21,9 @@ function sort_list($a, $subkey) {
     return $c;
 }
 
-function sorter() { 
+function sorter($sort_name) { 
     global $array;
-    $sort_name;
+    global $sort_name;
     $sort_name = 'без сортировки';
     $sorting = $_GET['sort'];
     switch ($sorting) {
@@ -39,7 +44,7 @@ function sorter() {
     }
 }
 ?>
-<?php $__env->startSection('content'); ?>
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -83,7 +88,7 @@ function sorter() {
 
                 <div class="sort-container">
                     <p class="sortir">Сортировка:</p>
-                    <button class="sel-btn"><a class="select-sort"><?php echo $sort_name; ?></a></button>
+                    <button class="sel-btn"><a class="select-sort"></a></button>
                     
                     <li class="sortlist">
                         <button>

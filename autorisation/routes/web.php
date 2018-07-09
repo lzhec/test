@@ -16,7 +16,8 @@ Route::get('/', function () {
 });
 
 Route::get('/home', function () {
-	$users = DB::table('users')->get();
+	//$users = DB::table('users')->get();
+	$users = App\Users::all();
 	return view('home', compact('users'));
 });
 

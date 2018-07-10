@@ -42,13 +42,14 @@ class SortController extends Controller
 	    }
 	}
 
-	public static function display($array){
-		rsort($array);
-		sorter();
+	public static function display($arrays){
+		$array = $arrays->toArray();
 
-		for($i = 0; $i < count($array); ++$i){
-			echo "<tr='?id=".$array[$i]['id']."'><td>".$array[$i]['user']."</td><td>".$array[$i]['email']."</td><td>".$array[$i]['created_at']."</td>";
-			echo "</tr>";
-		}
+		
+	
+		rsort($array);
+		//sorter($sortname);
+
+		return view('home', ['users' => $array]);
 	}
 }

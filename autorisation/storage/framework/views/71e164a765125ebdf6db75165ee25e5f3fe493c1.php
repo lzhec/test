@@ -12,6 +12,8 @@
 
     <!-- Scripts -->
     <script src="<?php echo e(asset('js/app.js')); ?>" defer></script>
+    <script src="<?php echo e(asset('js/jquery-3.3.1.min.js')); ?>"></script>
+    <script src="<?php echo e(asset('js/popupsort.js')); ?>"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -19,6 +21,7 @@
 
     <!-- Styles -->
     <link href="<?php echo e(asset('css/app.css')); ?>" rel="stylesheet">
+    <link href="<?php echo e(asset('css/styles.css')); ?>" rel="stylesheet">
 </head>
 <body>
     <div id="app">

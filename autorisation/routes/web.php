@@ -21,6 +21,10 @@ Route::get('/home', function () {
 	return view('home', compact('users'));
 });
 
+Route::get('/home/{a, subkey}', 'SortController@sort_list')->name('sortlist');
+Route::get('/home/{sort_name}', 'SortController@sorter')->name('sorter');
+Route::get('/home/{users}', 'SortController@display')->name('display');
+
 Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');

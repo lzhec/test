@@ -1,51 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<script>
-    $('.select-sort').click(function(){ 
-        $('.sortlist').slideToggle(200);
-    });
-</script>
-<?php
-//@include 'functions.php';
-?>
-
-<?php
-function sort_list($a, $subkey) {
-    foreach ($a as $k=>$v) {
-        $b[$k] = strtolower($v[$subkey]);
-    }
-    asort($b);
-    
-    foreach ($b as $key=>$val) {
-        $c[] = $a[$key];
-    }
-    return $c;
-}
-
-function sorter($sort_name) { 
-    global $array;
-    global $sort_name;
-    $sort_name = 'без сортировки';
-    $sorting = $_GET['sort'];
-    switch ($sorting) {
-        case 'name-sort';
-        $array = sort_list($user, 'name');
-        $sort_name = 'по имени пользователя';
-        break;
-
-        case 'email-sort';
-        $array = sort_list($array, 'email');
-        $sort_name = 'по email';
-        break;
-        
-        case 'date-sort';
-        $array = sort_list($array, 'created_at');   
-        $sort_name = 'по дате';
-        break;
-    }
-}
-?>
 
 <div class="container">
     <div class="row justify-content-center">
@@ -72,6 +27,9 @@ function sorter($sort_name) {
                             </tr>
                         @endforeach
                     </table>
+                    <table border="4 double black" class="table">
+                        {{ \App\Http\Controllers\SortController::display($user) }}
+                    </table>
 
                     <!--<?php 
                     /*$array = (array) $users;*
@@ -84,24 +42,25 @@ function sorter($sort_name) {
                         echo "</tr>";
                     }*/
                     ?>-->
-}
-                @endauth
 
-                <div class="sort-container">
-                    <p class="sortir">Сортировка:</p>
-                    <button class="sel-btn"><a class="select-sort"></a></button>
-                    
-                    <li class="sortlist">
-                        <button>
-                            <a id="byname" href="site.php?sort=name-sort">по имени пользователя</a>
-                        </button><br>
-                        <button width="200">
-                            <a id="byemail" href="site.php?sort=email-sort">по email</a>
-                        </button><br>
-                        <button>
-                            <a id="bystat" href="site.php?sort=date-sort">по дате регистрации</a>
-                        </button>
-                    </li>
+                @endauth
+                <div class="content">
+                    <div class="sort-container">
+                        <p class="sortir">Сортировка:</p>
+                        <button class="sel-btn"><a class="select-sort">{$sort_name}</a></button>
+                        
+                        <li class="sortlist">
+                            <button>
+                                <a id="byname" href="home?sort=name-sort">по имени пользователя</a>
+                            </button><br>
+                            <button width="200">
+                                <a id="byemail" href="home?sort=email-sort">по email</a>
+                            </button><br>
+                            <button>
+                                <a id="bystat" href="home?sort=date-sort">по дате регистрации</a>
+                            </button>
+                        </li>
+                    </div>
                 </div>                  
             </div>
         </div>
